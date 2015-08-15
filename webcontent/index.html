@@ -1,11 +1,12 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+
 <title>WunderChef</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="UTF-8">
 <meta name="keywords" content="Spicemystery Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -13,15 +14,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />		
 </head>
 <body ng-app="wunderChefApp">
+<header>
 <!-- header -->
-<div class="head-top">
+<div class="head-top" ng-controller="MainController as mainCtrl">
 			
 		</div>
 	<div class="header">
 		
 		<div class="container">
 			<div class="logo">
-				<a href="index.html"><img src="images/imageedit_4_5531157858.png" class="img-responsive" alt=""></a>
+				<a href="#/"><img src="images/imageedit_4_5531157858.png" class="img-responsive" alt=""></a>
 			</div>
 			<!--<div class="header-left">
 				<div class="head-nav">
@@ -49,191 +51,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="clearfix"> </div>
 			</div>
 	</div>
+</header>
 <!-- header -->
-<!-- banner -->
-	<div class="banner">
-		<div class="container">
-		<div class="b_room">
-				<div class="booking_room"><br />
-					<div class="reservation">
-						<div class="book-top">
-							<div class="b-search">
-								<div class="boo-lef">
-								<i class="sear"></i>
-								<p>Search</p>
-								</div>
-							</div>
-							<div class="pick">
-								<div class="boo-lef">
-								<i class="sele"></i>
-								<p>Pick</p>
-								</div>
-							</div>
-							<div class="delv">
-								<div class="boo-lef">
-								<i class="ca-r"></i>
-								<p>Delivered</p>
-								</div>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<ul>
-							<li class="span1_of_1">
-								 <!----------start section_room----------->
-								 <form>
-									<!--<input type="text" class="textbox" value="Enter Chef or Cuisine name here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Chef or Cuisine name here';}">-->
-									<angucomplete id="ex1" placeholder="Enter Chef or Cuisine name here" pause="100" selectedobject="selectedChef" localdata="cheflist" searchfields="name" titlefield="name" minlength="1" inputclass="form-control form-control-small" matchclass="highlight" />
-								</form>
-							 </li>	
-							<li class="span1_of_1">
-								 <!----------start section_room----------->
-								 <div class="section_room">
-									  <select id="country"  onchange="change_country(this.value)" class="frm-field required dropdown">
-											<option value="null">Enter City Name</option>
-											<option value="null">popular areas</option>         
-											<option value="AX">Maroubra</option>
-											<option value="AX">Ultimo</option>
-									  </select>
-								 </div>	
-							 </li>				  
-							 <li class="span1_of_3">
-									<div class="date_btn">
-										<form action="resturants.html">
-											<input type="submit" value="Search">
-										</form>
-									</div>
-							 </li>
-								<div class="clearfix"></div>
-						</ul>
-					</div>
-				</div>	
-			</div>
-	</div>
-	</div>
-<!-- banner -->	
-<!-- latis -->	
-	<div class="latis" ng-controller="ChefDataController as chefDataCntrl">
-		<div class="container">
-		<div class="col-md-4 latis-left" ng-repeat="Chefdta in chefFormData">
-			<h3>{{Chefdta.header}}</h3>
-			<img ng-src="{{Chefdta.image}}" class="img-responsive" alt="">
-			<div class="special-info grid_1 simpleCart_shelfItem">
-				<p>{{Chefdta.data}}</p>
-				<div class="cur">
-					<div class="cur-left">
-						<div class="item_add"><span class="item_price"><a class="morebtn hvr-rectangle-in" href="#">Explore</a></span></div>
-					</div>
-					<div class="cur-right">
-						<div class="item_add"><span class="item_price"><h6></h6></span></div>
-					</div>
-						<div class="clearfix"> </div>
-				</div>
-			</div>
-		</div>
-			<div class="clearfix"> </div>
-			
-				
-	</div>
-	</div>
-<!-- latis -->	
-<!-- feature -->
-<!--<div class="feature">
-		<div class="container">
-			<div class="fle-xsel">
-				<ul id="flexiselDemo3">
-					<li>
-							
-									<img src="images/1p.jpg" class="img-responsive" alt="">		
-								
-					</li>
-					<li>
-							
-									<img src="images/2p.jpg" class="img-responsive" alt="">		
-								
-					</li>			
-					<li>
-							
-									<img src="images/3p.png" class="img-responsive" alt="">		
-								
-					</li>		
-					<li>
-							
-									<img src="images/4p.jpg" class="img-responsive" alt="">		
-								
-									
-					</li>
-					<li>
-							
-									<img src="images/5p.jpg" class="img-responsive" alt="">		
-								
-					</li>
-					<li>
-							
-									<img src="images/6p.jpg" class="img-responsive" alt="">		
-								
-					</li>
-					<li>
-							
-									<img src="images/7p.jpg" class="img-responsive" alt="">		
-								
-					</li>
-					<li>
-							
-									<img src="images/8p.jpg" class="img-responsive" alt="">		
-								
-					</li>
-									
-				</ul>
-							
-							
-					<div class="clearfix"> </div>
-				
-			</div> 
-		</div>
-	</div>-->
-<!-- feature -->
-<!-- magnust -->	
-	<div class="magnust">
-		<div class="container">
-			<h3>Nascetur ridiculus mus</h3>
-		<div class="col-md-4 magnust-top">
-			
-			<div class="magnust-left">
-				<img src="images/9b.jpg" class="img-responsive" alt="">	
-			</div>
-			<div class="magnust-right">
-				<h4><a href="#">Cites of the</a></h4>
-				<p> Lorem Ipsum passage, and going through the cites of the undoubtable source. Lorem sections</p>
-				<a class="see" href="#">See More</a>
-			</div>
-				<div class="clearfix"> </div>
-		</div>
-		<div class="col-md-4 magnust-top">
-			<div class="magnust-left">
-				<img src="images/8b.jpg" class="img-responsive" alt="">	
-			</div>
-			<div class="magnust-right">
-				<h4><a href="#">Lorem Ipsum</a></h4>
-				<p> Lorem Ipsum passage, and going through the cites of the undoubtable source. Lorem sections</p>
-				<a class="see" href="#">See More</a>
-			</div>
-				<div class="clearfix"> </div>
-		</div>
-		<div class="col-md-4 magnust-top">
-			<div class="magnust-left">
-				<img src="images/10b.jpg" class="img-responsive" alt="">	
-			</div>
-			<div class="magnust-right">
-				<h4><a href="#">Will uncove</a></h4>
-				<p> Lorem Ipsum passage, and going through the cites of the undoubtable source. Lorem sections</p>
-				<a class="see" href="#">See More</a>
-			</div>
-				<div class="clearfix"> </div>
-		</div>
-			<div class="clearfix"> </div>
-	</div>
-	</div>
-<!-- magnust -->	
+<div id="viewDom" ng-view></div>
 <!-- footer-->
 	<div class="footer">
 		<div class="container">
@@ -255,9 +75,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- footer-->	
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script src="js/angular.js"></script>
-<script src="js/app.js"></script>
-<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
 <script src="js/angular-touch.min.js"></script>
+<script src="js/app.js"></script>
+
 <script src="js/app/controllers/main-controller.js"></script>
 <script src="js/app/directives/angucomplete.js"></script>
 </body>

@@ -1,0 +1,54 @@
+<div class="orders">
+   <div id="menus" class="container">
+<!--<input type="text" ng-model="menuSearch"></input>-->
+      <div class="col-sm-2 category">
+	<div class="fixedContainer-category">
+		<div class="category-header">							
+			<div class="btn-group">
+			  <button data-toggle="dropdown" class="btn btn-default" type="button">
+			   Category &nbsp;<span class="glyphicon glyphicon-filter"></span>
+			  </button>
+			</div>
+		</div>
+		<ul class="category-menu">	
+			
+				<li class="active" ng-repeat="categoryListVal in categoryList" ><a ng-click="scrollTo('{{categoryListVal}}')">{{categoryListVal}}</a></li>
+					</ul>
+	   </div>
+      </div>
+      <div class="col-sm-6">
+	  <div class="col-md-12 col-md-offset-3">
+            <form action="" class="search-form">
+                <div class="form-group has-feedback">
+            		<label for="search" class="sr-only">Search</label>
+            		<input type="text"  ng-model="menuSearch" class="form-control" name="search" id="search" placeholder="search menu">
+              		<span class="glyphicon glyphicon-search form-control-feedback"></span></input>
+            	</div>
+            </form>
+        </div>
+		<div ng-repeat="menuDataVal in menuToFilter() |filter: menuSearch | filter:menuItems">
+        <div id="{{menuDataVal.category}}" class="categoryHeader">
+			{{menuDataVal.category}}				
+		</div>
+		<ul class="list-group" style="">
+			<li class="menu" ng-repeat="menuVal in menuMainFormData  |filter: menuSearch | filter:{category: menuDataVal.category}">
+				 <div class="list-group-item items-group"><span class="menu-name">{{menuVal.name}}</span>
+                        <span class="pull-right moduleRight">
+						     <span ng-class="{'veg':menuVal.type, 'non-veg':!menuVal.type}" class="col-md-offset-0 pull-left"></span>
+						    <span class="price col-md-offset-0 col-sm-offset-0"><strong>₹ {{menuVal.price}}</strong>
+							</span>
+							<button class="btn btn-default btn-sm wunderChefBtn pull-right" type="button">
+							<span class="icon-plus">+</span>
+							</button>
+						</span>
+						
+						<div class="menu-item-small-description">{{menuVal.menu_item_description}}</div>
+						<div class="sub-menu-items-group"></div>
+						<div class=" item-description">{{menuVal.menu_item_small_description}}</div>
+				</div>
+			</li>
+		</ul>
+		</div>
+	    </div>
+	</div>
+</div>

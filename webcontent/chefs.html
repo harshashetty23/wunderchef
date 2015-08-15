@@ -1,0 +1,15 @@
+<div class="orders">
+	<div class="container">
+		<div class="order-top" ng-repeat="ChefMaindta in chefMainFormData">
+			<li class="im-g"><a><img ng-src="{{ChefMaindta.imagepath}}" class="img-responsive" alt=""></a></li>
+			<li class="data"><h4>{{ChefMaindta.name}}</h4>
+				<p>{{ChefMaindta.speciality}}</p>
+				<P> {{ChefMaindta.description}}</P>
+			</li>
+			<li class="bt-nn">
+				<a class="morebtn hvr-rectangle-in" href="#/menus">Explore</a>
+			</li>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
