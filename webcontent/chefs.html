@@ -1,15 +1,29 @@
-<div class="orders">
-	<div class="container">
-		<div class="order-top" ng-repeat="ChefMaindta in chefMainFormData">
-			<li class="im-g"><a><img ng-src="{{ChefMaindta.imagepath}}" class="img-responsive" alt=""></a></li>
-			<li class="data"><h4>{{ChefMaindta.name}}</h4>
-				<p>{{ChefMaindta.speciality}}</p>
-				<P> {{ChefMaindta.description}}</P>
-			</li>
-			<li class="bt-nn">
-				<a class="morebtn hvr-rectangle-in" href="#/menus">Explore</a>
-			</li>
-			<div class="clearfix"></div>
+<div id="scrollTopPad" class="container">
+<div class="col-sm-2">
+</div>
+	<div class="col-sm-10">
+		<div class="col-md-4 chefBlock" ng-repeat="ChefMaindta in chefMainFormData">
+		<div class="chefContainer">
+		                        <div class="figureDiv">
+								<figure>
+									<img class="chefImg" ng-src="{{ChefMaindta.imagepath}}" alt="" />
+									<figcaption><a href="#/menus"><i class="ico i-view"></i> <span>Explore Menus</span></a></figcaption>
+								</figure>
+								</div>
+								<div class="chefContent">
+									<h2><a href="#/menus">{{ChefMaindta.name}}</a></h2> 
+									<div class="actions">
+										<div class="feedBack">
+											<div class="likes"><i class="ico i-likes"></i><a href="#">comments 10</a></div>
+											<div class="comments"><i class="ico i-comments"></i><a href="#/menus">like 27</a></div>
+										</div>
+									</div>
+									<div class="excerpt">
+										<p>{{ChefMaindta.speciality}}</p>
+				                        <P> {{ChefMaindta.description}}</P>
+									</div>
+								</div>
+							
 		</div>
 	</div>
 </div>

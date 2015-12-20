@@ -1,5 +1,5 @@
 <!-- banner -->
-	<div class="banner">
+	<!-- <div class="banner">
 		<div class="container">
 		<div class="b_room">
 				<div class="booking_room"><br />
@@ -27,7 +27,7 @@
 						</div>
 						<ul>
 							<li class="span1_of_1">
-								 <!----------start section_room----------->
+								
 								 <div class="section_room">
 									  <select id="country"  onchange="change_country(this.value)" class="frm-field required dropdown">
 											<option value="null">Enter City Name</option>
@@ -38,9 +38,9 @@
 								 </div>	
 							 </li>	
 							<li class="span1_of_1">
-								 <!----------start section_room----------->								 
+															 
 								 <form>
-									<!--<input type="text" class="textbox" value="Enter Chef or Cuisine name here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Chef or Cuisine name here';}">-->
+								
 									<angucomplete id="ex1" placeholder="Enter Chef or Cuisine name here" pause="100" selectedobject="selectedChef" localdata="cheflist" searchfields="name" titlefield="name" minlength="1" inputclass="form-control form-control-small" matchclass="highlight" />
 								</form>
 							 </li>				  
@@ -57,27 +57,113 @@
 				</div>	
 			</div>
 	</div>
-	</div>
+	</div>-->
+<section id = "wunderChefLp" class="companyNotes ">
+<a href="#/"><img src="images/imageedit_4_5531157858.png" class="img-responsive" alt=""></a>
+        <!-- carousel image -->
+        <section class="carousel-slide">
+
+          <!-- carousel inner -->
+
+          <section class="inner carousel-inner">
+
+            <!-- images -->
+            <section class="item">
+				<div class="CbgImage video-intro">
+					<video autoplay loop poster="./media/bg_image.jpg" id="video-background" width='200px' muted>
+						<source src="./media/videoplayback.mp4" type="video/mp4">
+						
+					</video>
+				</div>
+               <!--<img class="CbgImage pull-right" src="./images/intro-bg1.jpg" alt>-->
+               <section class="carousel-caption caption" align="center">
+                <p class="lead compName ">
+                WELCOME TO WUNDERCHEF
+
+                </p>
+
+                       <!-- <h2 class="thin">Some good content about the company.</h2>
+        <h4 class ="thinner">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h4>
+                <h4 class="thinner">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h4>-->
+                <h2 class= "thin">view unique dishes from home chefs across India</h2>
+
+               </section>
+                <section class="col-sm-12" id="SearchBox">
+             
+			   <div>
+						
+						<div id="SearchDiv">
+
+							<div id="locationSearch">
+															 
+								 
+								
+									<angucompleteloc id="ex1" placeholder="Type Location here" pause="100" selectedobject="selectedChef" localdata="chefdivst" searchfields="name" titlefield="name" minlength="1" inputclass="form-control form-control-small" matchclass="highdivght" />
+								
+							 </div>	
+                           <div id="chefSearch">
+															 
+								 
+								
+									<angucomplete id="ex1" placeholder="Enter Chef,Dish or Cuisine here" pause="100" selectedobject="selectedChef" localdata="chefdivst" searchfields="name" titlefield="name" minlength="1" inputclass="form-control form-control-small" matchclass="highdivght" />
+								
+							 </div>								 
+							 <div id="searchBtn">
+									
+										
+											<button id="SearchBtnElm" class="btn btn-primary btn-large" type="submit" value="Search">Search</button>
+										
+									</div>
+							 </div>
+								<div class="clearfix"></div>
+						</div>
+					</div>
+                </section>
+				
+            </section>
+
+
+          </section> <!-- carousel inner end-->
+
+        </section><!-- carousel image end-->
+
+         <!-- comapny news section start -->
+
+       <!-- <section class="container-fluid comapnyNews">
+        
+        <p class="Makecenter caps thinner white">Some News about the company for the customers</p>
+       
+      </section>-->
+
+      </section>
 <!-- banner -->	
+<!-- <div class="clearBottom"></div>-->	
 <!-- latis -->	
 	<div class="latis">
 		<div class="container">
-		<div class="col-md-4 latis-left" ng-repeat="Chefdta in chefFormData">
-			<h3>{{Chefdta.header}}</h3>
-			<img ng-src="{{Chefdta.image}}" class="img-responsive" alt="">
-			<div class="special-info grid_1 simpleCart_shelfItem">
-				<p>{{Chefdta.data}}</p>
-				<div class="cur">
-					<div class="cur-left">
-						<div class="item_add"><span class="item_price"><a class="morebtn hvr-rectangle-in" href="#">Explore</a></span></div>
-					</div>
-					<div class="cur-right">
-						<div class="item_add"><span class="item_price"><h6></h6></span></div>
-					</div>
-						<div class="clearfix"> </div>
-				</div>
-			</div>
+		<div class="col-md-4 chefBlock" ng-repeat="ChefMaindta in chefFormData">
+		<div class="chefContainer">
+		                        <div class="figureDiv">
+								<figure>
+									<img class="chefImg" ng-src="{{ChefMaindta.imagepath}}" alt="" />
+									<figcaption><a href="#/menus"><i class="ico i-view"></i> <span>Explore Menus</span></a></figcaption>
+								</figure>
+								</div>
+								<div class="chefContent">
+									<h2><a href="#/menus">{{ChefMaindta.name}}</a></h2> 
+									<div class="actions">
+										<div class="feedBack">
+											<div class="likes"><i class="ico i-likes"></i><a href="#">comments 10</a></div>
+											<div class="comments"><i class="ico i-comments"></i><a href="#/menus">like 27</a></div>
+										</div>
+									</div>
+									<div class="excerpt">
+				                        <P> {{ChefMaindta.description}}</P>
+									</div>
+								</div>
+							
 		</div>
+	</div>
 			<div class="clearfix"> </div>
 			
 				

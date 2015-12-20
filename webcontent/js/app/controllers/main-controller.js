@@ -16,19 +16,12 @@ app.controller('ChefMainDataController', ['$scope','$http',function($scope,$http
       $scope.chefMainFormData = data;
     });
   }]);
-app.controller('MenuDataController', ['$scope','$http','$location','$anchorScroll',function($scope,$http,$location, $anchorScroll){
+app.controller('MenuDataController', ['$scope','$http','$location',function($scope,$http,$locationd){
    $http.get('http://localhost:8080/ChefWeb/MenuSearchList.chf?searchParam=ch').success(function(data){
       $scope.menuMainFormData = data;
 	  $scope.categoryList = $scope.menuCategory(data);
     });
-	
-	$scope.scrollTo = function(id) {
-    var old = $location.hash();
-    $location.hash(id);
-    $anchorScroll();
-    //reset to old to keep any additional routing logic from kicking in
-    $location.hash(old);
-    };
+	$scope.isCollapsed = true;
 	var indexedMenus = [];
     var indexedcategory = [];
     // this will reset the list of indexed teams each time the list is rendered again

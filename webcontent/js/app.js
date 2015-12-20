@@ -2,15 +2,21 @@
 
 /**
  * @ngdoc overview
- * @name decordecibelApp
+ * @name wunderChefApp
  * @description
- * # decordecibelApp
+ * # wunderChefApp
  *
  * Main module of the application.
  */
 var app = angular
-    .module('wunderChefApp', ["ngRoute","ngTouch", "angucomplete"])
-
+    .module('wunderChefApp', ["ngRoute","ngTouch","ui.bootstrap", "ngAnimate", "angucomplete","angucompleteloc","duScroll"])
+    .run(function($rootScope, $location, $routeParams) {
+    $rootScope.$on('$routeChangeSuccess', function(event, current) {
+      // Look at $location.path()
+      // If it isn't what you want, toggle showSideBar...
+	  $rootScope.showPageHeader = $location.path() !== '/';
+    })
+    })
 	.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
