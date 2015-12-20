@@ -12,9 +12,10 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>ChefWeb Maven Webapp</name>
-  	<url>http://sjbude183v.corp.webex.com:8888/artifactory/repo/</url>
+  <!--  	<url>https://github.com/harshashetty23/mvn-reposit</url>-->
+  	<url>https://github.com/harshashetty23/mvn-reposit</url>
 	<properties>
-		<spring.version>3.0.5.RELEASE</spring.version>
+		<spring.version>3.2.2.RELEASE</spring.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<module.skip.tests>true</module.skip.tests>
 		<skipTests>${module.skip.tests}</skipTests>
@@ -22,8 +23,60 @@
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
 	
+   <github.global.server>github</github.global.server>
+
 	</properties>
+	<repositories>
+		<repository>
+			<id>harshashetty23</id>
+			<url>https://github.com/harshashetty23/mvn-reposit/raw/master</url>
+		</repository>
+	</repositories>
+<distributionManagement>
+    <repository>
+        <id>internal.repo</id>
+        <name>Temporary Staging Repository</name>
+        <url>file://${project.build.directory}/mvn-reposit</url>
+    </repository>
+</distributionManagement>
+ <build>
+<plugins>
+    <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8.1</version>
+        <configuration>
+            <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-reposit</altDeploymentRepository>
+        </configuration>
+    </plugin>
+    <plugin>
+            <groupId>com.github.github</groupId>
+            <artifactId>site-maven-plugin</artifactId>
+            <version>0.11</version>
+            <configuration>
+                <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
+                <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
+                <outputDirectory>${project.build.directory}/mvn-reposit</outputDirectory> <!-- matches distribution management repository url above -->
+                <branch>refs/heads/master</branch>                       <!-- remote branch name -->
+                <includes><include>**/*</include></includes>
+                <merge>true</merge>                                        <!-- don't delete old artifacts -->
+                <repositoryName>mvn-reposit</repositoryName>      <!-- github repo name -->
+                <repositoryOwner>harshashetty23</repositoryOwner> 
+                 <github.site.dryRun>true</github.site.dryRun>   <!-- github username  -->
+            </configuration>
+            <executions>
+              <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
+              <execution>
+                <goals>
+                  <goal>site</goal>
+                </goals>
+                <phase>deploy</phase>
+              </execution>
+            </executions>
+        </plugin>
+</plugins>
+</build>
   <dependencies>
+			  
 		  <dependency>
 		    <groupId>WunderChef</groupId>
 		    <artifactId>ChefCore</artifactId>
@@ -41,13 +94,54 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>3.2.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.1</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>3.0.3.RELEASE</version>
+			<version>3.2.2.RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>opensymphony</groupId>
+		    <artifactId>oscache</artifactId>
+		    <version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-logging</groupId>
@@ -55,19 +149,52 @@
 			<version>1.1.1</version>
 		</dependency>
 		<dependency>
-			<groupId>webex11</groupId>
+			<groupId>servlet</groupId>
 			<artifactId>servlet-api-2.5</artifactId>
 			<version>6.1.4</version>
 			<type>jar</type>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>0.9.29</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>0.9.29</version>
+		</dependency>
+		<dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.6</version>
+        </dependency>
+		<!-- <dependency>
 		    <groupId>jackson-core</groupId>
 		    <artifactId>jackson-core</artifactId>
 		    <version>2.4.1</version>
+		</dependency> -->
+		<dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>2.2.3</version>
+    </dependency>
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.2.3</version>
+    </dependency>
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>2.2.3</version>
+    </dependency>
+    <dependency>
+			<groupId>spring-hibernate3</groupId>
+			<artifactId>spring-hibernate3</artifactId>
+			<version>2.0</version>
+			<classifier>m2</classifier>
 		</dependency>
   </dependencies>
-  <build>
-    <finalName>ChefWeb</finalName>
-  </build>
+
 </project>

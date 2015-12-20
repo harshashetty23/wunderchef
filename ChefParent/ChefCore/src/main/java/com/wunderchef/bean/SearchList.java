@@ -14,6 +14,9 @@ public class SearchList implements Serializable{
 		this.code=code;
 		this.type=type;
 	}
+	public SearchList() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getName() {
 		return name;
 	}
